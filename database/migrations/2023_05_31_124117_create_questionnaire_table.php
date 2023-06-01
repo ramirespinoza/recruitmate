@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQuiestionnaireTable extends Migration
+class CreateQuestionnaireTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,15 @@ class CreateQuiestionnaireTable extends Migration
      */
     public function up()
     {
-        Schema::create('quiestionnaire', function (Blueprint $table) {
+        Schema::create('questionnaire', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('company_id');  
+            $table->string('name');
+            $table->json('questions');
             $table->timestamps();
+
+            // foreing keys
+            $table->foreign('company_id')->references('id')->on('company');
         });
     }
 
@@ -26,6 +32,6 @@ class CreateQuiestionnaireTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('quiestionnaire');
+        Schema::dropIfExists('questionnaire');
     }
 }

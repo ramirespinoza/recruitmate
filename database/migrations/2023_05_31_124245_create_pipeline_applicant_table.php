@@ -15,7 +15,15 @@ class CreatePipelineApplicantTable extends Migration
     {
         Schema::create('pipeline_applicant', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('pipeline_id');
+            $table->unsignedBigInteger('position_id');
+            $table->json('stage');
             $table->timestamps();
+
+            // foreing keys
+            $table->foreign('position_id')->references('id')->on('position');
+            // foreing keys
+            $table->foreign('pipeline_id')->references('id')->on('pipeline');
         });
     }
 

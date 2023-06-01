@@ -15,6 +15,9 @@ class CreateSalaryTable extends Migration
     {
         Schema::create('salary', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('min');
+            $table->unsignedBigInteger('max');
+
             $table->timestamps();
         });
     }
