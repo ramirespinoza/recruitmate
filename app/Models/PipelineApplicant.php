@@ -5,16 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Scorecard extends Model
+class PipelineApplicant extends Model
 {
     use HasFactory;
 
-    protected $table = 'scorecard';
+    protected $table = 'pipeline_applicant';
 
     protected $fillable = [
         'id',
-        'company_id',
-        'name',
-        'items'
+        'pipeline_id',
+        'applicant_id',
+        'values',
+
     ];
 }

@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Salary extends Model
 {
     use HasFactory;
+
+    protected $table = 'salary';
+
+    protected $fillable = [
+        'id',
+        'position_id',
+        'min',
+        'max',
+        'period',
+        'currency'
+    ];
 }

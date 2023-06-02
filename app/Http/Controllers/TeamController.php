@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Team;
 
 class TeamController extends Controller
 {
@@ -11,9 +12,29 @@ class TeamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+
+        try {
+            $teams = Team::get();
+
+        } catch (\Throwable $th) {
+            return response()->json([
+                'teams' => $teams,
+                'operation' => 'get',
+                'status' => 'failed',
+                'code' => '0'
+            ]);    
+        }
+        
+
+        return response()->json([
+            'owner' => $request->user(),
+            'teams' => $teams,
+            'operation' => 'get',
+            'status' => 'successful',
+            'code' => '1'
+        ]); 
     }
 
     /**

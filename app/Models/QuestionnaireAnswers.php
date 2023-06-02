@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Scorecard extends Model
+class QuestionnaireAnswers extends Model
 {
     use HasFactory;
 
-    protected $table = 'scorecard';
+    protected $table = 'cuestionnaire_answers';
 
     protected $fillable = [
         'id',
-        'company_id',
-        'name',
-        'items'
+        'questionnaire_id',
+        'applicant_id',
+        'answers'
     ];
 }

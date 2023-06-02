@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Pipeline extends Model
 {
     use HasFactory;
+
+    protected $table = 'pipeline';
+
+    protected $fillable = [
+        'id',
+        'pipeline_id',
+        'name',
+        'stages'
+    ];
 }
